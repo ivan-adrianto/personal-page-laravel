@@ -1,0 +1,775 @@
+/* Container */
+.container {
+    overflow-x: hidden;
+}
+
+/* Navbar */
+
+.navbar {
+    margin: 5px 15px;
+    background-color: rgb(32, 32, 31);
+}
+
+.navbar-brand p {
+    font-family: kanit;
+    font-size: 20px;
+    color: white !important;
+    float: right;
+    margin-left: 7px;
+    font-weight: 800;
+    margin-top: 4px;
+}
+
+.navbar-brand img {
+    width: 40px;
+}
+
+.nav-link {
+    color: white !important;
+    font-size: 16px;
+    font-family: "Kanit";
+    padding: 5px 15px;
+    min-width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item.active {
+    background-color: rgb(54, 163, 233);
+    border-radius: 10px;
+}
+
+
+
+
+/* Jumbotron */
+.jumbotron h1 {
+    margin-left: 20px;
+    font-family: 'Kanit';
+    font-size: 30px;
+    color: rgb(54, 163, 233);
+    font-weight: 800;
+    margin-bottom: 0px;
+}
+
+#lingkaran1 {
+    width: 117px;
+    opacity: 25%;
+    z-index: 1;
+    position: absolute;
+    margin-top: -40px;
+    margin-left: -40px;
+    transition: all 0.5s ease-in-out;
+}
+
+#lingkaran1:hover {
+    opacity: 50%;
+    transform: scale(1.05);
+}
+
+.jumbotron p {
+    width: 650px;
+    line-height: 2;
+    color: rgb(191, 191, 191);
+    font-family: 'Roboto' sans-serif;
+    margin-left: 20px;
+}
+
+.lead {
+    color: white !important;
+    font-family: 'Kanit';
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 0px;
+    margin-bottom: -35px;
+}
+
+.jumbotron {
+    background: transparent !important;
+    padding: 4rem 0 4rem 2rem;
+}
+
+.btn-primary {
+    background-color: rgb(54, 163, 233);
+    border: rgb(54, 163, 233);
+    margin-left: 20px;
+    font-family: 'Roboto';
+    font-size: 14px;
+    padding: 10px 20px;
+    font-weight: 800;
+    margin-right: 30px;
+}
+
+.sosmed img {
+    display: flexbox;
+    width: 24px;
+    margin: 30px 20px
+}
+
+.foto-utama img {
+    height: 400px;
+    animation: fade-in 2s linear;
+}
+
+#jumbotron {
+    margin-bottom: -20px;
+    perspective: 40px;
+}
+
+.pernak1 {
+    width: 75px;
+    height: 75px;
+    border: 2px solid rgb(54, 163, 233);
+    margin-top: -350px;
+    margin-left: 830px;
+    transform: rotate(45deg);
+    filter: blur(1px);
+    animation: pop-in 2.4s linear;
+}
+
+.pernak2 {
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgb(54, 163, 233);
+    filter: blur(1px);
+    margin-left: 1060px;
+    transform: rotate(60deg);
+    margin-top: 150px;
+    position: relative;
+    z-index: 2;
+    animation: pop-in 2.5s linear;
+}
+
+.pernak3 {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgb(54, 163, 233);
+    transform: rotate(80deg);
+    position: absolute;
+    left: 630px;
+    filter: blur(1px);
+    animation: pop-in 2.6s linear;
+}
+
+.pernak4 {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgb(54, 163, 233);
+    transform: rotate(30deg);
+    position: absolute;
+    left: 400px;
+    top: 150px;
+    filter: blur(1px);
+    animation: pop-in 2.7s linear;
+}
+
+.pernak5 {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgb(54, 163, 233);
+    transform: rotate(20deg);
+    position: absolute;
+    left: 800px;
+    top: 370px;
+    filter: blur(1px);
+    animation: pop-in 2.8s linear;
+}
+
+.pernak6 {
+    width: 45px;
+    height: 45px;
+    border: 2px solid rgb(54, 163, 233);
+    transform: rotate(80deg);
+    position: absolute;
+    top: 88px;
+    left: 690px;
+    filter: blur(1px);
+    animation: pop-in 2.9s linear;
+}
+
+
+.pernak1:hover,
+.pernak2:hover,
+.pernak3:hover,
+.pernak4:hover,
+.pernak5:hover,
+.pernak6:hover {
+    transform: rotate(360deg);
+}
+
+.pernak1,
+.pernak2,
+.pernak3,
+.pernak4,
+.pernak5,
+.pernak6 {
+    transition: transform 0.7s ease-in-out;
+}
+
+
+
+/* Akhir Jumbotron */
+
+
+/* Projects Section */
+#portfolio-home.active {
+    animation: slide-right 0.7s ease-in-out;
+}
+
+/* Akhir Projects Section */
+/* Education */
+#education.active {
+    animation: slide-left 1s ease-in-out;
+}
+
+.education h1 {
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    font-size: 46px;
+    margin-bottom: 50px;
+}
+
+.card-transparent img {
+    width: 170px;
+    justify-content: center;
+    margin-left: 50px;
+}
+
+.card-transparent h5 {
+    color: white;
+    font-family: 'Kanit';
+    font-size: 18px;
+    text-align: center;
+    font-weight: 800;
+}
+
+.card-transparent p {
+    color: rgb(191, 191, 191);
+    font-family: 'Roboto';
+    font-size: 14px;
+    text-align: center;
+}
+
+.card-transparent {
+    margin-left: 47px;
+}
+
+
+/* Akhir Education */
+
+/* Portfolios */
+.portfolio-header h1 {
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    font-size: 46px;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.portfolio-header h1 strong {
+    font-weight: 700;
+}
+
+/* Akhir Portfolios */
+
+/* skills */
+#expertise.active {
+    animation: slide-left 0.7s linear;
+}
+
+.expertise h1 {
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    font-size: 46px;
+    margin-bottom: 50px;
+}
+
+.card-image {
+    background-color: white;
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0px;
+}
+
+.card-image img {
+    max-height: 100px;
+    width: auto;
+    max-width: 100px;
+    margin-left: 0px;
+}
+
+.card-image.ejs img {
+    max-width: 150px;
+}
+
+.card-transparent.skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+}
+
+/* Akhir skills */
+
+
+/* Working Experiences */
+#working-exp.active {
+    animation: slide-right 1s ease-in-out;
+}
+
+.job-exp h1 {
+    font-size: 700px !important;
+    color: none;
+}
+
+.carousel-inner img {
+    width: 375px !important;
+    margin: 25px 0px 25px 165px;
+    float: left;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.carousel-inner {
+    display: flex;
+}
+
+.carousel-inner h3 {
+    color: white;
+    font-family: 'Kanit';
+    font-size: 23px;
+    margin-top: 70px;
+    width: 300px
+}
+
+.carousel-inner p {
+    color: rgb(191, 191, 191);
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    width: 300px;
+}
+
+.carousel-inner p,
+h3 {
+    float: right;
+    margin-right: 180px;
+    margin-left: 0px;
+}
+
+.experience h1 {
+    font-size: 46px;
+    color: white;
+    font-family: 'Kanit';
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.experience span {
+    color: rgb(54, 163, 233)
+}
+
+#garnish6 {
+    width: 70px;
+    position: absolute;
+    z-index: 2;
+    left: 8vw;
+    top: 30px;
+}
+
+#garnish3 {
+    width: 117px;
+    position: absolute;
+    z-index: 2;
+    left: 22vw;
+    top: 140px;
+}
+
+#garnish4 {
+    width: 45px;
+    position: absolute;
+    z-index: 2;
+    margin-left: 45vw;
+    margin-top: 40px;
+}
+
+#garnish5 {
+    width: 69px;
+    position: absolute;
+    z-index: 2;
+    margin-left: 65vw;
+    margin-top: 150px;
+}
+
+#garnish2 {
+    width: 117px;
+    position: absolute;
+    z-index: 2;
+    margin-left: 85vw;
+    margin-top: 40px;
+}
+
+
+/* Akhir Working Experiences */
+
+
+/* Footer */
+
+footer {
+    color: rgb(191, 191, 191);
+    margin-top: 300px;
+}
+
+
+/* Portfolio page */
+.portfolio-category h1 {
+    font-family: "Kanit";
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.portfolio-category strong {
+    color: white;
+    font-weight: 400;
+}
+
+.portfolio-category span {
+    color: rgb(54, 163, 233);
+}
+
+.portfolio-category {
+    margin-bottom: 70px;
+}
+
+.portfolio-category img {
+    margin: 0px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.portfolio-thumbnail {
+    height: 169px;
+    min-width: 326px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+/* Akhir portfolio page */
+
+/* Portfolio category page */
+.portfolio-list-item p {
+    color: white;
+    margin-bottom: 0px;
+}
+
+.portfolio-list-item h2 {
+    color: white;
+    font-family: "Kanit";
+    display: inline-block;
+}
+
+.portfolio-list-item img {
+    cursor: default;
+}
+
+.portfolio-category.detail h1 {
+    cursor: default;
+}
+
+.portfolio-description {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.portfolio-item {
+    display: flex;
+}
+
+
+/* Mobile view */
+@media screen and (max-width: 768px) {
+
+    /* Navbar mobile */
+    .navbar {
+        height: 50px;
+        width: 100vw;
+        margin-left: 0px;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("/img/menu.png") !important;
+        height: 25px;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+
+    .navbar-brand {
+        display: none;
+    }
+
+    .navbar-nav {
+        margin-top: 20px;
+        background-color: rgb(32, 32, 31);
+        width: 100vw;
+        padding: 10px 40px;
+        position: relative;
+        left: -15px;
+    }
+
+    /* Akhir navbar mobile */
+
+    /* jumbotron */
+    .jumbotron {
+        padding: 0px;
+    }
+
+    .jumbotron p {
+        width: calc(100vw - 40px);
+        margin-left: 0;
+    }
+
+    .jumbotron h1 {
+        font-size: 22px;
+    }
+
+    .foto-utama img {
+        margin-top: 0px;
+        margin-bottom: 20px;
+        width: 200px;
+        height: auto;
+        position: relative;
+    }
+
+    p.lead {
+        font-size: 26px;
+        margin-left: 20px;
+    }
+
+    .pernak1,
+    .pernak2,
+    .pernak3,
+    .pernak4,
+    .pernak5,
+    .pernak6 {
+        display: none;
+    }
+
+    .sosmed img {
+        margin: 30px 10px;
+    }
+
+    .btn-primary {
+        margin-right: 10px;
+    }
+
+    /* Akhir Jumbotron */
+
+
+    /* Projects Section */
+    .portfolio-header h1 {
+        font-size: 28px;
+    }
+
+    .portfolio-category.home {
+        margin-top: -50px;
+        text-align: center;
+    }
+
+    .portfolio-category img {
+        margin-bottom: 30px;
+    }
+
+    .portfolio-thumbnail {
+        height: unset;
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    /* Akhir Projects Section */
+    /* Skills Section */
+    .expertise h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .card-image {
+        height: 100px;
+        width: 100px;
+        padding: 10px;
+    }
+
+    .card-image img {
+        max-height: 70%;
+        max-width: 100%;
+    }
+
+    .card-image.ejs img {
+        max-width: 80%;
+    }
+
+    .card-transparent {
+        width: 20% !important;
+        margin-left: 0px;
+    }
+
+    .col-sm-6 {
+        width: 50%;
+    }
+
+    /* Akhir skills section */
+
+    /* working experience */
+    .experience h1 {
+        font-size: 28px;
+    }
+
+    .carousel-inner img {
+        margin: 0px;
+    }
+
+    .carousel-inner h3,
+    p {
+        margin-right: 0px !important;
+        width: 100% !important;
+    }
+
+    .carousel-inner h3 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 24px !important;
+        font-weight: 700;
+    }
+
+    .carousel-inner p {
+        font-size: 16px !important;
+    }
+
+    /* Akhir working experience */
+
+    /* Education */
+    .education h1 {
+        font-size: 28px;
+    }
+
+    .card-transparent .card-img-top.education {
+        text-align: center;
+        height: 100px;
+        width: 100px;
+    }
+
+    .card-transparent.education {
+        width: 100% !important;
+        margin-bottom: 50px;
+    }
+
+    .card-text {
+        font-size: 16px !important;
+    }
+
+    /* Akhir Education */
+
+    /* Footer */
+    #garnish2,
+    #garnish3,
+    #garnish4,
+    #garnish5,
+    #garnish6 {
+        display: none;
+    }
+
+    #footer {
+        margin-top: 0px;
+    }
+
+    /* Akhir Footer */
+
+    /* Project Page */
+    .portfolio-category h1,
+    .portfolio-category strong {
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    /* Akhir project page */
+
+    /* Project detail page */
+    .portfolio-item {
+        display: block;
+    }
+
+    .portfolio-description {
+        align-items: center;
+        font-size: 16px;
+    }
+
+    .portfolio-description img {
+        margin-bottom: 0px;
+    }
+
+    /* Akhir project detail page */
+
+    /* Footer */
+    footer {
+        margin-top: 50px;
+    }
+
+}
+
+/* Animation */
+@keyframes slide-right {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        visibility: visible;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slide-left {
+    0% {
+        transform: translateX(50%);
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes pop-in {
+    0% {
+        opacity: 0;
+    }
+
+    99% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
