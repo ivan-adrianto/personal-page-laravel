@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\PortfolioController;
+use App\Models\About;
+use App\Models\Portfolio;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        "about" => About::get_data()
+    ]);
 });
+
+Route::get('/portfolio', [PortfolioController::class, 'index']);
+
+Route::get('/portfolio/{type}', [PortfolioController::class, 'detail']);

@@ -1,0 +1,57 @@
+<?php
+
+namespace App\Models;
+
+class Portfolio
+{
+    private static $portfolios = [
+        [
+            "title" => "<strong>Recent</strong> <span> Professional Projects</span>",
+            "type" => "profesional",
+            "thumbnails" => [
+                [
+                    "image" => "img/portfolio/vcg-marketplace.png",
+                    "alt" => "vcg-marketplace"
+                ],
+                [
+                    "image" => "img/portfolio/vcg-marketplace.png",
+                    "alt" => "vcg-marketplace"
+                ],
+                [
+                    "image" => "img/portfolio/vcg-marketplace.png",
+                    "alt" => "vcg-marketplace"
+                ],
+            ]
+        ],
+        [
+            "title" => "<strong>Recent Personal & </strong> <span>Non-Professional Projects</span>",
+            "type" => "personal",
+            "thumbnails" => [
+                [
+                    "image" => "img/portfolio/vcg-marketplace.png",
+                    "alt" => "vcg-marketplace"
+                ],
+                [
+                    "image" => "img/portfolio/vcg-marketplace.png",
+                    "alt" => "vcg-marketplace"
+                ],
+                [
+                    "image" => "img/portfolio/vcg-marketplace.png",
+                    "alt" => "vcg-marketplace"
+                ],
+            ]
+        ]
+    ];
+
+
+    public static function all()
+    {
+        return collect(self::$portfolios);
+    }
+
+    public static function find($type)
+    {
+        $portfolios = self::all();
+        return $portfolios->firstWhere('link', $type);
+    }
+}

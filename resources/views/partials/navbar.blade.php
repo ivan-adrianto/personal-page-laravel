@@ -13,7 +13,7 @@
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" id="portfolio">
-          <a class="nav-link" href="/portfolio.html">Portfolio</a>
+          <a class="nav-link" href="/portfolio">Portfolio</a>
         </li>
       </div>
     </div>
