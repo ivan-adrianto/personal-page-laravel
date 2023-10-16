@@ -10,6 +10,7 @@ use App\Models\Experience;
 use App\Models\Portfolio;
 use App\Models\Skill;
 use App\Models\Stack;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -32,10 +33,22 @@ class DatabaseSeeder extends Seeder
             "content" => "This is Ivan, a passionate software developer who creates magic with Javascript. Currently working as front end developer. He also developed some backend and mobile apps. For him, coding is like love. Sometimes it makes you frustrated, but you just cannot leave it.",
             "email" => "ivanadrianto64@gmail.com",
             "links" => json_encode([
-                "linkedin" => "https://www.linkedin.com/in/ivan-adrianto-a02a251b8/",
-                "github" => "https://github.com/ivan-adrianto",
-                "medium" => "https://ivanadrianto.medium.com/",
-                "instagram" => "https://www.instagram.com/ivanadrianto/ "
+                [
+                    "name" => "LinkedIn",
+                    "link" => "https://www.linkedin.com/in/ivan-adrianto-a02a251b8/"
+                ],
+                [
+                    "name" => "Github",
+                    "link" => "https://github.com/ivan-adrianto"
+                ],
+                [
+                    "name" => "Medium",
+                    "link" => "https://ivanadrianto.medium.com/"
+                ],
+                [
+                    "name" => "Instagram",
+                    "link" => "https://www.instagram.com/ivanadrianto/"
+                ],
             ]),
             "created_at" => now(),
             "updated_at" => now()
@@ -68,7 +81,7 @@ class DatabaseSeeder extends Seeder
             [
                 "title" => "Admin2Win",
                 "description" => "Admin2Win is an app used for construction worker and company in Belgium. In ETS, the construction workers can add to do list, track their working time, checking their agenda, etc. While their manager can check on the workers tracked time, create agenda, managing clients, etc.",
-                "image" => "/img/portfolio/ets.png",
+                "image" => "/img/portfolio/admin2win.png",
                 "tech_stack" => "Angular, Ionic, Express JS, MySQL, Jira, Bitbucket",
                 "link" => "",
                 "link_text" => "",
@@ -396,7 +409,7 @@ class DatabaseSeeder extends Seeder
             [
                 "company_name" => "Nebulae",
                 "description" => "In 2023, I joined Nebulae as front end developer. Despite initially I worked as a front end developer, in the working process I also developed API for Nebulae's client in Europe, as well as working on developing mobile app.",
-                "image" => "img/nebulae.jpg",
+                "image" => "/img/nebulae.jpg",
                 "created_at" => now(),
                 "updated_at" => now()
             ],
@@ -404,7 +417,7 @@ class DatabaseSeeder extends Seeder
                 "company_name" => "VC Gamers",
                 "description" => "At the end of 2021, I joined VCGamers as front end developer. Since then, I built VCGamers Marketplace,
                 VC Arena, and \$VCG Token website.",
-                "image" => "img/nebulae.jpg",
+                "image" => "/img/vcgamers.jpg",
                 "created_at" => now(),
                 "updated_at" => now()
             ],
@@ -412,7 +425,7 @@ class DatabaseSeeder extends Seeder
                 "company_name" => "Skyshi Digital Indonesia",
                 "description" => "Since January 2021, I joined Skyshi as front end developer, and built some web apps requested by
                 Skyshi's clients. Awarded as the engineer with best velocity for 3rd quarter of 2021.",
-                "image" => "img/skyshi.jpg",
+                "image" => "/img/skyshi.jpg",
                 "created_at" => now(),
                 "updated_at" => now()
             ],
@@ -420,7 +433,7 @@ class DatabaseSeeder extends Seeder
                 "company_name" => "PT. BPR Danaputra Sakti",
                 "description" => "In 2019, worked as saving and deposit account administrator. Then, moved to Legal Officer. And the
                 last, as lending marketing in 2020. Created some Excel mini-programs that increases working efficiency until 300%.",
-                "image" => "img/dps-squar-bw.png",
+                "image" => "/img/dps-squar-bw.png",
                 "created_at" => now(),
                 "updated_at" => now()
             ],
@@ -448,6 +461,11 @@ class DatabaseSeeder extends Seeder
                 "created_at" => now(),
                 "updated_at" => now()
             ],
+        ]);
+        User::create([
+            "name" => "Admin",
+            "username" => "admin",
+            "password" => bcrypt(env('ADMIN_DASHBOARD_PASSWORD'))
         ]);
     }
 }

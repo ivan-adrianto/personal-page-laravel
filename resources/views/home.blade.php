@@ -6,6 +6,7 @@
     <br \><br class="d-none d-md-block" \>
     <div class="main-content-jumbotron d-block d-lg-flex justify-content-between ">
       <div>
+        
         <h1 class="display-4">Hi, I'm Ivan Adrianto</h1>
         <img src="img/linibr.png" alt="Lingkaran" id="lingkaran1">
         <p class="lead">Full Stack Developer</p>

@@ -21,4 +21,11 @@ class PortfolioController extends Controller
             "portfolio" => Portfolio::find($type)
         ]);
     }
+
+    public function portfolioDasboard()
+    {
+        return view('admin.portfolios', [
+            "portfolios" => Portfolio::all()
+        ]);
+    }
 }
