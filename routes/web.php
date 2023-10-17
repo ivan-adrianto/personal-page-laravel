@@ -49,3 +49,7 @@ Route::get('/admin/education', [EducationController::class, 'index'])->middlewar
 Route::get('/admin/experiences', [ExperienceController::class, 'index'])->middleware('auth')->name('experiences');
 
 Route::get('/admin/about', [AboutController::class, 'index'])->middleware('auth')->name('about');
+
+Route::get('/admin/skills/create', [SkillController::class, 'create'])->middleware('auth')->name('about');
+
+Route::post('/admin/skills', [SkillController::class, 'store']);
