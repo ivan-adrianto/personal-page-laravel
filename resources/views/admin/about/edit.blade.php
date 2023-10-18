@@ -15,6 +15,7 @@
 
         <!-- About Form -->
         <form action="/admin/about" method="post">
+            @method('put')
             @csrf
 
             <!-- About section -->

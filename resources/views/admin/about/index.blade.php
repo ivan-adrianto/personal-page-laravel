@@ -4,6 +4,13 @@
 
 @section('content')
     <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            @if (session()->has('success'))
+                <div class="alert alert-success col-md-4" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+        </div>
         <div class="d-flex justify-content-between mb-4">
             <div>
                 <h1>About</h1>

@@ -62,5 +62,5 @@ Route::get('/admin/about/edit', [AboutController::class, 'edit'])->middleware('a
 
 Route::get('/admin/about', [AboutController::class, 'index'])->middleware('auth')->name('about');
 
-Route::post('/admin/about', [AboutController::class, 'update']);
+Route::put('/admin/about', [AboutController::class, 'update']);
 

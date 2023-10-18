@@ -26,6 +26,17 @@ class AboutController extends Controller
 
     public function update(Request $request)
     {
-        return $request;
+        $validatedRequest = $request->validate([
+            "title" => "required",
+            "lead" => "required",
+            "content" => "required",
+            "links" => "required"
+        ]);
+
+        $about = About::first();
+        About::where('id', $about->id)
+            ->update($validatedRequest);
+
+        return redirect('/admin/about')->with('success', 'About has been updated');
     }
 }

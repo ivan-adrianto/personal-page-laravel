@@ -58,13 +58,11 @@ class SkillController extends Controller
             ],
             ["stack_id.required" => "stack is required field"]
         );
-        $skill = Skill::find($skill_id);
-        $skill->update([
-            "name" => $validatedRequest["name"],
-            "image" => $validatedRequest["image"],
-            "stack_id" => $validatedRequest["stack_id"]
-        ]);
-        return redirect('/admin/skills')->with('success', 'New skill has been added');
+        
+        Skill::where('id', $skill_id)
+            ->update($validatedRequest);
+
+        return redirect('/admin/skills')->with('success', 'Skill has been edited');
     }
 
     public function destroy($skill_id)

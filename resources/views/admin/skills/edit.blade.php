@@ -7,7 +7,8 @@
         <h1>Edit Skill</h1>
 
         <!-- Skill Form -->
-        <form action="/admin/skills/{{ $skill_id }}" method="put">
+        <form action="/admin/skills/{{ $skill_id }}" method="post">
+            @method('put')
             @csrf
 
             <!-- Skill Name -->
