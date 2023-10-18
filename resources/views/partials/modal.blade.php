@@ -8,7 +8,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <form id="deleteSkillForm" action="/admin/skills/" method="post">
+                <form id="deleteItemForm" action="/admin/skills/" method="post">
                     @method('delete')
                     @csrf
                     <button type="Submit" class="btn btn-danger">Delete</button>
@@ -20,9 +20,10 @@
 <script>
     $('#staticBackdrop').on('show.bs.modal', function(event) {
         var button = $(event.relatedTarget);
-        var skillId = button.data('skill-id');
-        var skillName = button.data('skill-name');
-        $('#deleteSkillForm').attr('action', '/admin/skills/' + skillId);
-        $('#modalBody').html(`Are you sure to delete ${skillName}?`)
+        var itemId = button.data('item-id');
+        var itemName = button.data('item-name');
+        var link = button.data('link')
+        $('#deleteItemForm').attr('action', link + itemId);
+        $('#modalBody').html(`Are you sure to delete ${itemName}?`)
     });
 </script>

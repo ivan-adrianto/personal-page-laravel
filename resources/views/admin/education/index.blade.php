@@ -1,59 +1,51 @@
 @extends('layouts.admin')
 
-@section('title', 'Skills')
+@section('title', 'Education')
 
 @section('content')
     <div class="container mt-5">
-        <div class="d-flex justify-content-between mb-4">
-            <h1>Skills</h1>
+        <h1 class="mb-4">Education</h1>
+        <div class="d-flex justify-content-center">
             @if (session()->has('success'))
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success col-md-4" role="alert">
                     {{ session('success') }}
                 </div>
             @endif
-            <a href="/admin/skills/create">
-                <button class="btn btn-primary px-4">
-                    <i class="fa-solid fa-plus me-2"></i>
-                    Add new</button>
-            </a>
         </div>
-
         <div class="table-responsive">
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
+                        <th>Title</th>
                         <th>Image</th>
-                        <th>Stack</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($skills as $skill)
+                    @foreach ($educations as $education)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $skill->name }}</td>
-                            <td><img src="{{ $skill->image }}" alt="{{ $skill->name }}" width="30"></td>
-                            <td>{{ $skill->stack->name }}</td>
+                            <td>{{ $education->title }}</td>
+                            <td><img src="{{ $education->image }}" alt="{{ $education->title }}" width="250"></td>
                             <td>
-                                <a href="/admin/skills/{{ $skill->id }}" class="text-decoration-none">
+                                <a href="/admin/education/{{ $education->id }}" class="text-decoration-none">
                                     <button type="button" class="btn btn-primary me-3">
                                         <i class="fa-regular fa-pen-to-square "></i>
                                     </button>
                                 </a>
 
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop" data-item-id="{{ $skill->id }}"
-                                    data-item-name="{{ $skill->name }}" data-link="/admin/skills">
+                                    data-bs-target="#staticBackdrop" data-item-id="{{ $education->id }}"
+                                    data-item-name="{{ $education->name }}" data-link="/admin/education">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
                             </td>
                         </tr>
                     @endforeach
+                    <!-- Add more rows for each skill -->
                 </tbody>
             </table>
         </div>
     </div>
-    @include('partials.modal')
 @endsection

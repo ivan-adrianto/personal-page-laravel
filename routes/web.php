@@ -46,6 +46,10 @@ Route::get('/admin/portfolios', [PortfolioController::class, 'portfolioDasboard'
 
 Route::get('/admin/education', [EducationController::class, 'index'])->middleware('auth')->name('education');
 
+Route::get('/admin/education/{education_id}', [EducationController::class, 'edit'])->middleware('auth')->name('education');
+
+Route::put('/admin/education/{education_id}', [EducationController::class, 'update']);
+
 Route::get('/admin/experiences', [ExperienceController::class, 'index'])->middleware('auth')->name('experiences');
 
 Route::get('/admin/skills/create', [SkillController::class, 'create'])->middleware('auth')->name('about');
