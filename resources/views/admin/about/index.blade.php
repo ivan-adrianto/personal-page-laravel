@@ -8,9 +8,12 @@
             <div>
                 <h1>About</h1>
             </div>
-            <button class="btn btn-primary px-5">
-                <i class="fa-regular fa-pen-to-square"></i>
-                Edit</button>
+            <a href="/admin/about/edit">
+                <button class="btn btn-primary px-5">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    Edit
+                </button>
+            </a>
         </div>
 
         <!-- Title Section -->

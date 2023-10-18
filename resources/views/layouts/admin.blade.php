@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container align-items-center">
             <a class="navbar-brand" href="/admin/dashboard">Dashboard</a>
@@ -63,9 +63,7 @@
     </div>
 
     <!-- Include Bootstrap JS (optional, only if you need Bootstrap JavaScript features) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
 

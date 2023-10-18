@@ -48,8 +48,19 @@ Route::get('/admin/education', [EducationController::class, 'index'])->middlewar
 
 Route::get('/admin/experiences', [ExperienceController::class, 'index'])->middleware('auth')->name('experiences');
 
-Route::get('/admin/about', [AboutController::class, 'index'])->middleware('auth')->name('about');
-
 Route::get('/admin/skills/create', [SkillController::class, 'create'])->middleware('auth')->name('about');
 
 Route::post('/admin/skills', [SkillController::class, 'store']);
+
+Route::get('/admin/skills/{skill_id}', [SkillController::class, 'edit'])->middleware('auth')->name('about');
+
+Route::put('/admin/skills/{skill_id}', [SkillController::class, 'update']);
+
+Route::delete('/admin/skills/{skill_id}', [SkillController::class, 'destroy']);
+
+Route::get('/admin/about/edit', [AboutController::class, 'edit'])->middleware('auth')->name('about');
+
+Route::get('/admin/about', [AboutController::class, 'index'])->middleware('auth')->name('about');
+
+Route::post('/admin/about', [AboutController::class, 'update']);
+

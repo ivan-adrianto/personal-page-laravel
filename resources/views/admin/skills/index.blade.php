@@ -6,6 +6,11 @@
     <div class="container mt-5">
         <div class="d-flex justify-content-between mb-4">
             <h1>Skills</h1>
+            @if (session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
             <a href="/admin/skills/create">
                 <button class="btn btn-primary px-4">
                     <i class="fa-solid fa-plus me-2"></i>
@@ -32,14 +37,23 @@
                             <td><img src="{{ $skill->image }}" alt="{{ $skill->name }}" width="30"></td>
                             <td>{{ $skill->stack->name }}</td>
                             <td>
-                                <i class="fa-regular fa-pen-to-square me-3" role="button"></i>
-                                <i class="fa-solid fa-trash" role="button"></i>
+                                <a href="/admin/skills/{{ $skill->id }}" class="text-decoration-none">
+                                    <button type="button" class="btn btn-primary me-3">
+                                        <i class="fa-regular fa-pen-to-square "></i>
+                                    </button>
+                                </a>
+
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop" data-skill-id="{{ $skill->id }}"
+                                    data-skill-name="{{ $skill->name }}">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
                             </td>
                         </tr>
                     @endforeach
-                    <!-- Add more rows for each skill -->
                 </tbody>
             </table>
         </div>
     </div>
+    @include('partials.modal')
 @endsection

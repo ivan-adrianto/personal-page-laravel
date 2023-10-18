@@ -15,4 +15,17 @@ class AboutController extends Controller
             "links" => collect(json_decode($about->links, TRUE))
         ]);
     }
+
+    public function edit()
+    {
+        $about = About::first();
+        return view('admin.about.edit', [
+            "about" => $about
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        return $request;
+    }
 }
