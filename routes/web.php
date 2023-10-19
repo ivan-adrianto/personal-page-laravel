@@ -58,6 +58,16 @@ Route::delete('/admin/education/{education_id}', [EducationController::class, 'd
 
 Route::get('/admin/experiences', [ExperienceController::class, 'index'])->middleware('auth')->name('experiences');
 
+Route::get('/admin/experiences/create', [ExperienceController::class, 'create'])->middleware('auth')->name('experiences');
+
+Route::post('/admin/experiences', [ExperienceController::class, 'store']);
+
+Route::get('/admin/experiences/{experience_id}', [ExperienceController::class, 'edit'])->middleware('auth')->name('experiences');
+
+Route::delete('/admin/experiences/{experience_id}', [ExperienceController::class, 'destroy']);
+
+Route::put('/admin/experiences/{experience_id}', [ExperienceController::class, 'update']);
+
 Route::get('/admin/skills/create', [SkillController::class, 'create'])->middleware('auth')->name('about');
 
 Route::post('/admin/skills', [SkillController::class, 'store']);
@@ -73,4 +83,3 @@ Route::get('/admin/about/edit', [AboutController::class, 'edit'])->middleware('a
 Route::get('/admin/about', [AboutController::class, 'index'])->middleware('auth')->name('about');
 
 Route::put('/admin/about', [AboutController::class, 'update']);
-

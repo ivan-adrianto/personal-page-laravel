@@ -1,24 +1,19 @@
 @extends('layouts.admin')
 
-@section('title', 'Add Education')
+@section('title', 'Add Experience')
 
 @section('content')
     <div class="container mt-5">
-        <h1>Add Education</h1>
+        <h1>Add Experience</h1>
 
-        {{-- @if ($errors->any())
-            {{ $errors }}
-        @endif --}}
-
-
-        <!-- Education Form -->
-        <form action="/admin/education" method="post">
+        <!-- Experience Form -->
+        <form action="/admin/experiences" method="post">
             @csrf
             <div class="mb-3 col-md-4">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                    value="{{ old('title') }}">
-                @error('title')
+                <label for="company_name" class="form-label">Company Name</label>
+                <input type="text" class="form-control @error('company_name') is-invalid @enderror" id="company_name" name="company_name"
+                    value="{{ old('company_name') }}">
+                @error('company_name')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
@@ -39,7 +34,7 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary mt-2">Add Education</button>
+            <button type="submit" class="btn btn-primary mt-2">Add Experience</button>
         </form>
     </div>
 @endsection
