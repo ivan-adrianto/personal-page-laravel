@@ -42,8 +42,6 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/admin/skills', [SkillController::class, 'index'])->middleware('auth')->name('skills');
 
-Route::get('/admin/portfolios', [PortfolioController::class, 'portfolioDasboard'])->middleware('auth')->name('portfolios');
-
 Route::get('/admin/education', [EducationController::class, 'index'])->middleware('auth')->name('education');
 
 Route::post('/admin/education', [EducationController::class, 'store']);
@@ -83,3 +81,16 @@ Route::get('/admin/about/edit', [AboutController::class, 'edit'])->middleware('a
 Route::get('/admin/about', [AboutController::class, 'index'])->middleware('auth')->name('about');
 
 Route::put('/admin/about', [AboutController::class, 'update']);
+
+Route::get('/admin/portfolios', [PortfolioController::class, 'portfolioDasboard'])->middleware('auth')->name('portfolios');
+
+Route::get('/admin/portfolios/create', [PortfolioController::class, 'create'])->middleware('auth')->name('portfolios');
+
+Route::post('/admin/portfolios', [PortfolioController::class, 'store']);
+
+Route::get('/admin/portfolios/{portfolio_id}', [PortfolioController::class, 'edit'])->middleware('auth')->name('portfolios');
+
+Route::delete('/admin/portfolios/{portfolio_id}', [PortfolioController::class, 'destroy']);
+
+Route::put('/admin/portfolios/{portfolio_id}', [PortfolioController::class, 'update']);
+
