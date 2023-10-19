@@ -45,7 +45,7 @@
 
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop" data-item-id="{{ $skill->id }}"
-                                    data-item-name="{{ $skill->name }}" data-link="/admin/skills">
+                                    data-item-name="{{ $skill->name }}" data-link="/admin/skills/">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
                             </td>

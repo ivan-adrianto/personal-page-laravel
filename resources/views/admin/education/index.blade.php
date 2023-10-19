@@ -4,7 +4,14 @@
 
 @section('content')
     <div class="container mt-5">
-        <h1 class="mb-4">Education</h1>
+        <div class="d-flex justify-content-between">
+            <h1 class="mb-4">Education</h1>
+            <a href="/admin/education/create">
+                <button class="btn btn-primary px-4">
+                    <i class="fa-solid fa-plus me-2"></i>
+                    Add new</button>
+            </a>
+        </div>
         <div class="d-flex justify-content-center">
             @if (session()->has('success'))
                 <div class="alert alert-success col-md-4" role="alert">
@@ -37,7 +44,7 @@
 
                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop" data-item-id="{{ $education->id }}"
-                                    data-item-name="{{ $education->name }}" data-link="/admin/education">
+                                    data-item-name="{{ $education->title }}" data-link="/admin/education/">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
                             </td>
@@ -48,4 +55,5 @@
             </table>
         </div>
     </div>
+    @include('partials.modal')
 @endsection

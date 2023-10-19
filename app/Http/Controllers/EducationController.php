@@ -14,6 +14,24 @@ class EducationController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('admin.education.create');
+    }
+
+    public function store(Request $request)
+    {
+        $validatedRequest = $request->validate([
+            "title" => "required",
+            "description" => "required",
+        ]);
+
+        $validatedRequest['image'] = $request->input('image');
+        
+        Education::create($validatedRequest);
+        return redirect('/admin/education')->with('success', 'Success add new education');
+    }
+
     public function edit($education_id)
     {
         $education = Education::find($education_id);
@@ -34,5 +52,11 @@ class EducationController extends Controller
             ->update($validatedRequest);
 
         return redirect('/admin/education')->with('success', 'Education has been updated!');
+    }
+
+    public function destroy($education_id)
+    {
+        Education::destroy($education_id);
+        return redirect('/admin/education')->with('success', 'Education deleted');
     }
 }
