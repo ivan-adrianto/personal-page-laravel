@@ -33,7 +33,13 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $portfolio->title }}</td>
-                            <td><img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}" width="250"></td>
+                            <td>
+                                @if (Storage::exists('/' . $portfolio->image))
+                                    <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}" width="250">
+                                @else
+                                    <img src="{{ $portfolio->image }}" alt="{{ $portfolio->title }}" width="250">
+                                @endif
+                            </td>
                             <td>{{ $portfolio->type }}</td>
                             <td>
                                 <a href="/admin/portfolios/{{ $portfolio->id }}" class="text-decoration-none">

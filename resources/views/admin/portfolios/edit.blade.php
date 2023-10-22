@@ -7,7 +7,7 @@
         <h1>Edit Portfolio</h1>
 
         <!-- Portfolio Form -->
-        <form action="/admin/portfolios/{{ $portfolio_id }}" method="post">
+        <form action="/admin/portfolios/{{ $portfolio_id }}" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf
 
@@ -28,11 +28,10 @@
                 @enderror
             </div>
 
-
             <div class="mb-3 col-md-4">
                 <label for="tech_stack" class="form-label">Tech Stack</label>
-                <input type="text" class="form-control @error('tech_stack') is-invalid @enderror" id="tech_stack" name="tech_stack"
-                    value="{{ old('tech_stack', $portfolio->tech_stack) }}">
+                <input type="text" class="form-control @error('tech_stack') is-invalid @enderror" id="tech_stack"
+                    name="tech_stack" value="{{ old('tech_stack', $portfolio->tech_stack) }}">
                 @error('tech_stack')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -49,17 +48,26 @@
 
             <div class="mb-3 col-md-4">
                 <label for="link_text" class="form-label">Link Text</label>
-                <input type="text" class="form-control @error('link_text') is-invalid @enderror" id="link_text" name="link_text"
-                    value="{{ old('link_text', $portfolio->link_text) }}">
+                <input type="text" class="form-control @error('link_text') is-invalid @enderror" id="link_text"
+                    name="link_text" value="{{ old('link_text', $portfolio->link_text) }}">
                 @error('link_text')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="mb-3 col-md-4">
+                <input type="hidden" name="oldImage" value="{{ $portfolio->image }}">
                 <label for="image" class="form-label">Image</label>
-                <input type="text" class="form-control @error('image') is-invalid @enderror" id="image"
-                    name="image" value="{{ old('image', $portfolio->image) }}" >
+                @if (Storage::exists('/' . $portfolio->image))
+                    <img src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->title }}" width="250"
+                        class="img-preview d-block img-fluid mb-3 col-sm-6">
+                @elseif ($portfolio->image)
+                    <img class="d-block img-preview img-fluid mb-3 col-sm-6" src="{{ $portfolio->image }}">
+                @else
+                    <img class="img-preview img-fluid mb-3 col-sm-6">
+                @endif
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
+                    name="image" onchange="previewImage()">
                 @error('image')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

@@ -7,7 +7,7 @@
         <h1>Add New Portfolio</h1>
 
         <!-- Portfolio Form -->
-        <form action="/admin/portfolios" method="post">
+        <form action="/admin/portfolios" method="post" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3 col-md-4">
@@ -30,8 +30,8 @@
 
             <div class="mb-3 col-md-4">
                 <label for="tech_stack" class="form-label">Tech Stack</label>
-                <input type="text" class="form-control @error('tech_stack') is-invalid @enderror" id="tech_stack" name="tech_stack"
-                    value="{{ old('tech_stack') }}">
+                <input type="text" class="form-control @error('tech_stack') is-invalid @enderror" id="tech_stack"
+                    name="tech_stack" value="{{ old('tech_stack') }}">
                 @error('tech_stack')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -48,8 +48,8 @@
 
             <div class="mb-3 col-md-4">
                 <label for="link_text" class="form-label">Link Text</label>
-                <input type="text" class="form-control @error('link_text') is-invalid @enderror" id="link_text" name="link_text"
-                    value="{{ old('link_text') }}">
+                <input type="text" class="form-control @error('link_text') is-invalid @enderror" id="link_text"
+                    name="link_text" value="{{ old('link_text') }}">
                 @error('link_text')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -57,8 +57,9 @@
 
             <div class="mb-3 col-md-4">
                 <label for="image" class="form-label">Image</label>
-                <input type="text" class="form-control @error('image') is-invalid @enderror" id="image"
-                    name="image">
+                <img class="img-preview img-fluid mb-3 col-sm-6">
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
+                    name="image" onchange="previewImage()">
                 @error('image')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

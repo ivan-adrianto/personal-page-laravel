@@ -63,8 +63,27 @@
     </div>
 
     <!-- Include Bootstrap JS (optional, only if you need Bootstrap JavaScript features) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script>
+        const previewImage = () => {
+            console.log('jalan')
+            const imageInput = document.querySelector('#image');
+            const imagePreview = document.querySelector('.img-preview')
 
+            imagePreview.style.display = 'block'
+
+            console.log('imageinput', imageInput)
+
+            const oFReader = new FileReader()
+            oFReader.readAsDataURL(imageInput.files[0])
+
+            oFReader.onload = function(oFREvent) {
+                imagePreview.src = oFREvent.target.result
+            }
+        }
+    </script>
 </body>
 
 </html>
