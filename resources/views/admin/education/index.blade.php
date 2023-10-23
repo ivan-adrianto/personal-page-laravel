@@ -34,7 +34,14 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $education->title }}</td>
-                            <td><img src="{{ $education->image }}" alt="{{ $education->title }}" width="250"></td>
+                            <td>
+                                @if (Storage::exists('/' . $education->image))
+                                    <img src="{{ asset('storage/' . $education->image) }}" alt="{{ $education->title }}"
+                                        width="100">
+                                @else
+                                    <img src="{{ $education->image }}" alt="{{ $education->title }}" width="100">
+                                @endif
+                            </td>
                             <td>
                                 <a href="/admin/education/{{ $education->id }}" class="text-decoration-none">
                                     <button type="button" class="btn btn-primary me-3">

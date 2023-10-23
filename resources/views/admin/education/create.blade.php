@@ -6,13 +6,8 @@
     <div class="container mt-5">
         <h1>Add Education</h1>
 
-        {{-- @if ($errors->any())
-            {{ $errors }}
-        @endif --}}
-
-
         <!-- Education Form -->
-        <form action="/admin/education" method="post">
+        <form action="/admin/education" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3 col-md-4">
                 <label for="title" class="form-label">Title</label>
@@ -25,8 +20,9 @@
 
             <div class="mb-3 col-md-4">
                 <label for="image" class="form-label">Image</label>
-                <input type="text" class="form-control @error('image') is-invalid @enderror" id="image"
-                    value="{{ old('image') }}" name="image">
+                <img class="img-preview img-fluid mb-3 col-sm-6">
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
+                    name="image" onchange="previewImage()">
                 @error('image')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
