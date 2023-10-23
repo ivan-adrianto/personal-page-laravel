@@ -34,7 +34,14 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $skill->name }}</td>
-                            <td><img src="{{ $skill->image }}" alt="{{ $skill->name }}" width="30"></td>
+                            <td>
+                                @if (Storage::exists('/' . $skill->image))
+                                    <img src="{{ asset('storage/' . $skill->image) }}" alt="{{ $skill->name }}"
+                                        width="50" height="50">
+                                @else
+                                    <img src="{{ $skill->image }}" alt="{{ $skill->name }}" width="50" height="50">
+                                @endif
+                            </td>
                             <td>{{ $skill->stack->name }}</td>
                             <td>
                                 <a href="/admin/skills/{{ $skill->id }}" class="text-decoration-none">

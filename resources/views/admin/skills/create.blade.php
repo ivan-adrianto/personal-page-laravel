@@ -7,7 +7,7 @@
         <h1>Add New Skill</h1>
 
         <!-- Skill Form -->
-        <form action="/admin/skills" method="post">
+        <form action="/admin/skills" method="post" enctype="multipart/form-data">
             @csrf
 
             <!-- Skill Name -->
@@ -20,11 +20,12 @@
                 @enderror
             </div>
 
-            <!-- Image URL -->
+            <!-- Image -->
             <div class="mb-3 col-md-4">
-                <label for="image" class="form-label">Image URL</label>
-                <input type="text" class="form-control @error('image') is-invalid @enderror" id="image"
-                    name="image">
+                <label for="image" class="form-label">Image</label>
+                <img class="img-preview img-fluid mb-3 col-sm-6">
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
+                    name="image" onchange="previewImage()">
                 @error('image')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

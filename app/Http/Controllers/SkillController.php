@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Skill;
 use App\Models\Stack;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SkillController extends Controller
 {
@@ -27,11 +28,15 @@ class SkillController extends Controller
         $validatedRequest = $request->validate(
             [
                 "name" => "required|max:255",
-                "image" => "max:255",
+                "image" => "image|file|max:1024",
                 "stack_id" => "required"
             ],
             ["stack_id.required" => "stack is required field"]
         );
+
+        if ($request->file('image')) {
+            $validatedRequest['image'] = $request->file('image')->store('/images');
+        }
 
         Skill::create($validatedRequest);
         return redirect('/admin/skills')->with('success', 'New skill has been added');
@@ -53,12 +58,19 @@ class SkillController extends Controller
         $validatedRequest = $request->validate(
             [
                 "name" => "required|max:255",
-                "image" => "max:255",
+                "image" => "image|file|max:1024",
                 "stack_id" => "required"
             ],
             ["stack_id.required" => "stack is required field"]
         );
-        
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedRequest['image'] = $request->file('image')->store('/images');
+        }
+
         Skill::where('id', $skill_id)
             ->update($validatedRequest);
 
@@ -67,6 +79,8 @@ class SkillController extends Controller
 
     public function destroy($skill_id)
     {
+        $skill = Skill::find($skill_id);
+        Storage::delete($skill->image);
         Skill::destroy($skill_id);
         return redirect('admin/skills')->with('success', 'Skill has been deleted');
     }

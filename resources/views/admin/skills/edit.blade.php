@@ -7,7 +7,7 @@
         <h1>Edit Skill</h1>
 
         <!-- Skill Form -->
-        <form action="/admin/skills/{{ $skill_id }}" method="post">
+        <form action="/admin/skills/{{ $skill_id }}" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf
 
@@ -23,9 +23,18 @@
 
             <!-- Image URL -->
             <div class="mb-3 col-md-4">
-                <label for="image" class="form-label">Image URL</label>
-                <input type="text" class="form-control @error('image') is-invalid @enderror" id="image"
-                    value="{{ old('image') ? old('image') : $skill->image }}" name="image">
+                <input type="hidden" name="oldImage" value="{{ $skill->image }}">
+                <label for="image" class="form-label">Image</label>
+                @if (Storage::exists('/' . $skill->image))
+                    <img src="{{ asset('storage/' . $skill->image) }}" alt="{{ $skill->name }}" width="250"
+                        class="img-preview d-block img-fluid mb-3 col-sm-6">
+                @elseif ($skill->image)
+                    <img class="d-block img-preview img-fluid mb-3 col-sm-6" src="{{ $skill->image }}">
+                @else
+                    <img class="img-preview img-fluid mb-3 col-sm-6">
+                @endif
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
+                    name="image" onchange="previewImage()">
                 @error('image')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
