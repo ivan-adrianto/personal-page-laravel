@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Experience;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ExperienceController extends Controller
 {
@@ -25,9 +26,12 @@ class ExperienceController extends Controller
         $validatedRequest = $request->validate([
             "company_name" => "required",
             "description" => "required",
+            "image" => "image|file|max:1024"
         ]);
 
-        $validatedRequest['image'] = $request->input('image');
+        if ($request->file('image')) {
+            $validatedRequest['image'] = $request->file('image')->store('/images');
+        }
 
         Experience::create($validatedRequest);
         return redirect('/admin/experiences')->with('success', 'Success add new experience');
@@ -44,23 +48,30 @@ class ExperienceController extends Controller
 
     public function update($experience_id, Request $request)
     {
-        try {
-            $validatedRequest = $request->validate([
-                "company_name" => "required",
-                "description" => "required"
-            ]);
+        $validatedRequest = $request->validate([
+            "company_name" => "required",
+            "description" => "required",
+            "image" => "image|file|max:1024"
+        ]);
 
-            Experience::where('id', $experience_id)
-                ->update($validatedRequest);
-
-            return redirect('/admin/experiences')->with('success', 'Experience has been updated!');            //code...
-        } catch (\Throwable $th) {
-            echo $th;
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedRequest['image'] = $request->file('image')->store('/images');
         }
+
+        Experience::where('id', $experience_id)
+            ->update($validatedRequest);
+
+        return redirect('/admin/experiences')->with('success', 'Experience has been updated!');            //code...
+
     }
 
     public function destroy($experience_id)
     {
+        $experience = Experience::find($experience_id);
+        Storage::delete($experience->image);
         Experience::destroy($experience_id);
         return redirect('/admin/experiences')->with('success', 'Experience deleted');
     }

@@ -7,12 +7,12 @@
         <h1>Add Experience</h1>
 
         <!-- Experience Form -->
-        <form action="/admin/experiences" method="post">
+        <form action="/admin/experiences" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-3 col-md-4">
                 <label for="company_name" class="form-label">Company Name</label>
-                <input type="text" class="form-control @error('company_name') is-invalid @enderror" id="company_name" name="company_name"
-                    value="{{ old('company_name') }}">
+                <input type="text" class="form-control @error('company_name') is-invalid @enderror" id="company_name"
+                    name="company_name" value="{{ old('company_name') }}">
                 @error('company_name')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -20,8 +20,9 @@
 
             <div class="mb-3 col-md-4">
                 <label for="image" class="form-label">Image</label>
-                <input type="text" class="form-control @error('image') is-invalid @enderror" id="image"
-                    value="{{ old('image') }}" name="image">
+                <img class="img-preview img-fluid mb-3 col-sm-6">
+                <input class="form-control @error('image') is-invalid @enderror" type="file" id="image"
+                    name="image" onchange="previewImage()">
                 @error('image')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

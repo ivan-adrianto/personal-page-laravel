@@ -21,7 +21,7 @@
                 @enderror
             </div>
 
-            <!-- Image URL -->
+            <!-- Image -->
             <div class="mb-3 col-md-4">
                 <input type="hidden" name="oldImage" value="{{ $skill->image }}">
                 <label for="image" class="form-label">Image</label>

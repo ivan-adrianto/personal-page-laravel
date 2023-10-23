@@ -32,7 +32,14 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $experience->company_name }}</td>
-                            <td><img src="{{ $experience->image }}" alt="{{ $experience->title }}" width="250"></td>
+                            <td>
+                                @if (Storage::exists('/' . $experience->image))
+                                    <img src="{{ asset('storage/' . $experience->image) }}" alt="{{ $experience->company_name }}"
+                                        width="250">
+                                @else
+                                    <img src="{{ $experience->image }}" alt="{{ $experience->company_name }}" width="250">
+                                @endif
+                            </td>
                             <td>
                                 <a href="/admin/experiences/{{ $experience->id }}" class="text-decoration-none">
                                     <button type="button" class="btn btn-primary me-3">
